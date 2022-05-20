@@ -28,11 +28,11 @@ public class Pacient extends Entity<PacientId> {
     }
 
     // Getters
-    public PhoneNumber phoneNumber() {
-        return phoneNumber;
-    }
-
     public Name name() {
         return name;
+    }
+
+    public PhoneNumber phoneNumber() {
+        return phoneNumber;
     }
 }
