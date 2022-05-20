@@ -19,6 +19,7 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
         appendChange(new MedicalAppointmentCreated(appointmentDate)).apply();
     }
 
+    // Getters
     public MedicalAppointmentId medicalAppointmentId() {
         return entityId;
     }
