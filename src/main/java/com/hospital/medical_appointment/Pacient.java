@@ -23,6 +23,10 @@ public class Pacient extends Entity<PacientId> {
         return name;
     }
 
+    public PhoneNumber phoneNumber() {
+        return phoneNumber;
+    }
+
     // Behaviors
     public void updateName(Name name){
         this.name = Objects.requireNonNull(name);
@@ -30,10 +34,5 @@ public class Pacient extends Entity<PacientId> {
 
     public void updatePhoneNumber(PhoneNumber phoneNumber){
         this.phoneNumber = Objects.requireNonNull(phoneNumber);
-    }
-
-
-    public PhoneNumber phoneNumber() {
-        return phoneNumber;
     }
 }
