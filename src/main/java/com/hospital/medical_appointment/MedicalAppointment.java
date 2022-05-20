@@ -56,11 +56,11 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     }
 
     public void UpdatePacientName(PacientId entityId, Name name) {
-        appendChange(new PacientNameUpdated(name)).apply();
+        appendChange(new PacientNameUpdated(entityId, name)).apply();
     }
 
     public void UpdatePacientPhoneNumber(PacientId entityId, PhoneNumber phoneNumber) {
-        appendChange(new PacientPhoneNumberUpdated(phoneNumber)).apply();
+        appendChange(new PacientPhoneNumberUpdated(entityId, phoneNumber)).apply();
     }
 
     // Doctor Behaviors
@@ -83,7 +83,7 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     }
 
     public void UpdateDoctorEmail(DoctorId entityId, Email email) {
-        appendChange(new DoctorEmailUpdated(email)).apply();
+        appendChange(new DoctorEmailUpdated(entityId, email)).apply();
     }
 
     // ClinicHistory Behaviors
@@ -104,18 +104,18 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     }
 
     public void UpdateClinicHistoryConsultationReason(ClinicHistoryId entityId, ConsultationReason consultationReason) {
-        appendChange(new ClinicHistoryConsultationReasonUpdated(consultationReason)).apply();
+        appendChange(new ClinicHistoryConsultationReasonUpdated(entityId, consultationReason)).apply();
     }
 
     public void UpdateClinicHistoryBackground(ClinicHistoryId entityId, Background background) {
-        appendChange(new ClinicHistoryBackgroundUpdated(background)).apply();
+        appendChange(new ClinicHistoryBackgroundUpdated(entityId, background)).apply();
     }
 
     public void UpdateClinicHistoryDiagnosis(ClinicHistoryId entityId, Diagnosis diagnosis) {
-        appendChange(new ClinicHistoryDiagnosisUpdated(diagnosis)).apply();
+        appendChange(new ClinicHistoryDiagnosisUpdated(entityId, diagnosis)).apply();
     }
 
     public void UpdateClinicHistoryTreatment(ClinicHistoryId entityId, Treatment treatment) {
-        appendChange(new ClinicHistoryTreatmentUpdated(treatment)).apply();
+        appendChange(new ClinicHistoryTreatmentUpdated(entityId, treatment)).apply();
     }
 }

@@ -57,7 +57,7 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
     }
 
     public void UpdateConsultingRoomAddress(ConsultingRoomId entityId, Address address) {
-        appendChange(new ConsultingRoomAddressUpdated(address)).apply();
+        appendChange(new ConsultingRoomAddressUpdated(entityId, address)).apply();
     }
 
     // Stretcher Behaviors
@@ -76,11 +76,11 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
     }
 
     public void UpdateStretcherType(StretcherId entityId, Type type) {
-        appendChange(new StretcherTypeUpdated(type)).apply();
+        appendChange(new StretcherTypeUpdated(entityId, type)).apply();
     }
 
     public void UpdateStretcherReclining(StretcherId entityId, Reclining reclining) {
-        appendChange(new StretcherRecliningUpdated(reclining)).apply();
+        appendChange(new StretcherRecliningUpdated(entityId, reclining)).apply();
     }
 
     // Phonendoscope Behaviors
@@ -98,6 +98,6 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
     }
 
     public void UpdatePhonendoscopeBrand(StretcherId entityId, Brand brand) {
-        appendChange(new PhonendoscopeBrandUpdated(brand)).apply();
+        appendChange(new PhonendoscopeBrandUpdated(entityId, brand)).apply();
     }
 }
