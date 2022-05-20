@@ -3,24 +3,23 @@ package com.hospital.medical_appointment;
 import co.com.sofka.domain.generic.AggregateEvent;
 import com.hospital.medical_appointment.events.MedicalAppointmentCreated;
 import com.hospital.medical_appointment.values.*;
-import com.hospital.medical_resource.values.MedicalResourceId;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-public class MedicalAppointment extends AggregateEvent<MedicalResourceId> {
+public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     protected AppointmentDate appointmentDate;
     protected Set<Pacient> pacients;
     protected Set<Doctor> doctors;
     protected Set<ClinicHistory> clinicHistories;
 
-    public MedicalAppointment(MedicalResourceId entityId, AppointmentDate appointmentDate) {
+    public MedicalAppointment(MedicalAppointmentId entityId, AppointmentDate appointmentDate) {
         super(entityId);
         appendChange(new MedicalAppointmentCreated(appointmentDate)).apply();
     }
 
-    public MedicalResourceId medicalResourceId() {
+    public MedicalAppointmentId medicalResourceId() {
         return entityId;
     }
 
