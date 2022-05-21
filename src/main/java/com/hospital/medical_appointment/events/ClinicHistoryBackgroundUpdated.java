@@ -5,17 +5,17 @@ import com.hospital.medical_appointment.values.Background;
 import com.hospital.medical_appointment.values.ClinicHistoryId;
 
 public class ClinicHistoryBackgroundUpdated extends DomainEvent {
-    private ClinicHistoryId entityId;
+    private ClinicHistoryId clinicHistoryId;
     private Background background;
 
     public ClinicHistoryBackgroundUpdated(ClinicHistoryId entityId, Background background) {
         super("hospital.medicalAppointment.clinicHistoryBackgroundUpdated");
-        this.entityId = entityId;
+        this.clinicHistoryId = entityId;
         this.background = background;
     }
 
-    public ClinicHistoryId getEntityId() {
-        return entityId;
+    public ClinicHistoryId getClinicHistoryId() {
+        return clinicHistoryId;
     }
 
     public Background getBackground() {

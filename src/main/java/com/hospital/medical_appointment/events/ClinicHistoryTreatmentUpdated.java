@@ -5,17 +5,17 @@ import com.hospital.medical_appointment.values.ClinicHistoryId;
 import com.hospital.medical_appointment.values.Treatment;
 
 public class ClinicHistoryTreatmentUpdated extends DomainEvent {
-    private ClinicHistoryId entityId;
+    private ClinicHistoryId clinicHistoryId;
     private Treatment treatment;
 
     public ClinicHistoryTreatmentUpdated(ClinicHistoryId entityId, Treatment treatment) {
         super("hospital.medicalAppointment.clinicHistoryTreatmentUpdated");
-        this.entityId = entityId;
+        this.clinicHistoryId = entityId;
         this.treatment = treatment;
     }
 
-    public ClinicHistoryId getEntityId() {
-        return entityId;
+    public ClinicHistoryId getClinicHistoryId() {
+        return clinicHistoryId;
     }
 
     public Treatment getTreatment() {

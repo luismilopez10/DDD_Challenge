@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import com.hospital.medical_appointment.values.*;
 
 public class ClinicHistoryAdded extends DomainEvent {
-    private ClinicHistoryId entityId;
+    private ClinicHistoryId clinicHistoryId;
     private ConsultationReason consultationReason;
     private Background background;
     private Diagnosis diagnosis;
@@ -12,15 +12,15 @@ public class ClinicHistoryAdded extends DomainEvent {
 
     public ClinicHistoryAdded(ClinicHistoryId entityId, ConsultationReason consultationReason, Background background, Diagnosis diagnosis, Treatment treatment) {
         super("hospital.medicalAppointment.clinicHistoryAdded");
-        this.entityId = entityId;
+        this.clinicHistoryId = entityId;
         this.consultationReason = consultationReason;
         this.background = background;
         this.diagnosis = diagnosis;
         this.treatment = treatment;
     }
 
-    public ClinicHistoryId getEntityId() {
-        return entityId;
+    public ClinicHistoryId getClinicHistoryId() {
+        return clinicHistoryId;
     }
 
     public ConsultationReason getConsultationReason() {

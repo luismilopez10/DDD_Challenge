@@ -5,17 +5,17 @@ import com.hospital.medical_appointment.values.Name;
 import com.hospital.medical_appointment.values.PacientId;
 
 public class PacientNameUpdated extends DomainEvent {
-    private PacientId entityId;
+    private PacientId pacientId;
     private Name name;
 
     public PacientNameUpdated(PacientId entityId, Name name) {
         super("hospital.medicalAppointment.pacientNameUpdated");
-        this.entityId = entityId;
+        this.pacientId = entityId;
         this.name = name;
     }
 
-    public PacientId getEntityId() {
-        return entityId;
+    public PacientId getPacientId() {
+        return pacientId;
     }
 
     public Name getName() {
