@@ -1,10 +1,14 @@
 package com.hospital.medical_resource;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+import com.hospital.medical_appointment.MedicalAppointment;
+import com.hospital.medical_appointment.values.MedicalAppointmentId;
 import com.hospital.medical_appointment.values.Name;
 import com.hospital.medical_resource.events.*;
 import com.hospital.medical_resource.values.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -24,6 +28,12 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
     private MedicalResource(MedicalResourceId entityId) {
         super(entityId);
         subscribe(new MedicalResourceChange(this));
+    }
+
+    public static MedicalResource from(MedicalResourceId medicalResourceId, List<DomainEvent> events) {
+        var medicalResource = new MedicalResource(medicalResourceId);
+        events.forEach(medicalResource::applyEvent);
+        return medicalResource;
     }
 
     // Getters

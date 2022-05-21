@@ -1,9 +1,11 @@
 package com.hospital.medical_appointment;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.hospital.medical_appointment.events.*;
 import com.hospital.medical_appointment.values.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -22,6 +24,12 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     private MedicalAppointment(MedicalAppointmentId entityId) {
         super(entityId);
         subscribe(new MedicalAppointmentChange(this));
+    }
+
+    public static MedicalAppointment from(MedicalAppointmentId medicalAppointmentId, List<DomainEvent> events) {
+        var medicalAppointment = new MedicalAppointment(medicalAppointmentId);
+        events.forEach(medicalAppointment::applyEvent);
+        return medicalAppointment;
     }
 
     // Getters
