@@ -5,17 +5,17 @@ import com.hospital.medical_resource.values.Brand;
 import com.hospital.medical_resource.values.StretcherId;
 
 public class PhonendoscopeBrandUpdated extends DomainEvent {
-    private StretcherId entityId;
+    private StretcherId stretcherId;
     private Brand brand;
 
     public PhonendoscopeBrandUpdated(StretcherId entityId, Brand brand) {
         super("hospital.medicalAppointment.phonendoscopeBrandUpdated");
-        this.entityId = entityId;
+        this.stretcherId = entityId;
         this.brand = brand;
     }
 
-    public StretcherId getEntityId() {
-        return entityId;
+    public StretcherId getStretcherId() {
+        return stretcherId;
     }
 
     public Brand getBrand() {

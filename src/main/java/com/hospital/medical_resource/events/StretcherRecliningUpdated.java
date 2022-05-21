@@ -5,17 +5,17 @@ import com.hospital.medical_resource.values.Reclining;
 import com.hospital.medical_resource.values.StretcherId;
 
 public class StretcherRecliningUpdated extends DomainEvent {
-    private StretcherId entityId;
+    private StretcherId stretcherId;
     private Reclining reclining;
 
     public StretcherRecliningUpdated(StretcherId entityId, Reclining reclining) {
         super("hospital.medicalAppointment.stretcherRecliningUpdated");
-        this.entityId = entityId;
+        this.stretcherId = entityId;
         this.reclining = reclining;
     }
 
-    public StretcherId getEntityId() {
-        return entityId;
+    public StretcherId getStretcherId() {
+        return stretcherId;
     }
 
     public Reclining getReclining() {

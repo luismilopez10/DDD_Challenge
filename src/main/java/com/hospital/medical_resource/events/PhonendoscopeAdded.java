@@ -5,17 +5,17 @@ import com.hospital.medical_resource.values.Brand;
 import com.hospital.medical_resource.values.PhonendoscopeId;
 
 public class PhonendoscopeAdded extends DomainEvent {
-    private PhonendoscopeId entityId;
+    private PhonendoscopeId phonendoscopeId;
     private Brand brand;
 
     public PhonendoscopeAdded(PhonendoscopeId entityId, Brand brand) {
         super("hospital.medicalAppointment.phonendoscopeAdded");
-        this.entityId = entityId;
+        this.phonendoscopeId = entityId;
         this.brand = brand;
     }
 
-    public PhonendoscopeId getEntityId() {
-        return entityId;
+    public PhonendoscopeId getPhonendoscopeId() {
+        return phonendoscopeId;
     }
 
     public Brand getBrand() {

@@ -11,7 +11,7 @@ public class MedicalResourceCreated extends DomainEvent {
         this.name = name;
     }
 
-    public Name name() {
+    public Name getName() {
         return name;
     }
 }
