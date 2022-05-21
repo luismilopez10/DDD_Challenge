@@ -19,6 +19,11 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
         appendChange(new MedicalAppointmentCreated(appointmentDate)).apply();
     }
 
+    private MedicalAppointment(MedicalAppointmentId entityId) {
+        super(entityId);
+        subscribe(new MedicalAppointmentChange(this));
+    }
+
     // Getters
     public MedicalAppointmentId medicalAppointmentId() {
         return entityId;
@@ -79,7 +84,7 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     }
 
     public void UpdateDoctorName(DoctorId entityId, Name name) {
-        appendChange(new DoctorNameUpdated(name)).apply();
+        appendChange(new DoctorNameUpdated(entityId, name)).apply();
     }
 
     public void UpdateDoctorEmail(DoctorId entityId, Email email) {

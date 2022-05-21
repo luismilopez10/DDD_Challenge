@@ -21,6 +21,11 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
         appendChange(new MedicalResourceCreated(name)).apply();
     }
 
+    private MedicalResource(MedicalResourceId entityId) {
+        super(entityId);
+        subscribe(new MedicalResourceChange(this));
+    }
+
     // Getters
     public MedicalResourceId medicalResourceId() {
         return entityId;
@@ -97,7 +102,7 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
                 .findFirst();
     }
 
-    public void UpdatePhonendoscopeBrand(StretcherId entityId, Brand brand) {
+    public void UpdatePhonendoscopeBrand(PhonendoscopeId entityId, Brand brand) {
         appendChange(new PhonendoscopeBrandUpdated(entityId, brand)).apply();
     }
 }
