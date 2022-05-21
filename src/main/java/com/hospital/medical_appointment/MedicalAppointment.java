@@ -1,7 +1,7 @@
 package com.hospital.medical_appointment;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import com.hospital.medical_appointment.events.MedicalAppointmentCreated;
+import com.hospital.medical_appointment.events.*;
 import com.hospital.medical_appointment.values.*;
 
 import java.util.Objects;
