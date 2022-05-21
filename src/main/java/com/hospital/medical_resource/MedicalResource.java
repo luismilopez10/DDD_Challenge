@@ -2,7 +2,7 @@ package com.hospital.medical_resource;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import com.hospital.medical_appointment.values.Name;
-import com.hospital.medical_resource.events.MedicalResourceCreated;
+import com.hospital.medical_resource.events.*;
 import com.hospital.medical_resource.values.*;
 
 import java.util.Objects;
