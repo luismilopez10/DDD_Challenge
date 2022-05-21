@@ -2,8 +2,6 @@ package com.hospital.medical_resource;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.hospital.medical_appointment.MedicalAppointment;
-import com.hospital.medical_appointment.values.MedicalAppointmentId;
 import com.hospital.medical_appointment.values.Name;
 import com.hospital.medical_resource.events.*;
 import com.hospital.medical_resource.values.*;
@@ -64,7 +62,7 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
         appendChange(new ConsultingRoomAdded(entityId, address)).apply();
     }
 
-    public Optional<ConsultingRoom> getConsultingRoomById(ConsultingRoomId entityId) {
+    protected Optional<ConsultingRoom> getConsultingRoomById(ConsultingRoomId entityId) {
         return consultingRooms()
                 .stream()
                 .filter(consultingRoom -> consultingRoom.identity().equals(entityId))
@@ -83,7 +81,7 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
         appendChange(new StretcherAdded(entityId, type, reclining)).apply();
     }
 
-    public Optional<Stretcher> getStretcherById(StretcherId entityId) {
+    protected Optional<Stretcher> getStretcherById(StretcherId entityId) {
         return stretchers()
                 .stream()
                 .filter(stretcher -> stretcher.identity().equals(entityId))
@@ -105,7 +103,7 @@ public class MedicalResource extends AggregateEvent<MedicalResourceId> {
         appendChange(new PhonendoscopeAdded(entityId, brand)).apply();
     }
 
-    public Optional<Phonendoscope> getPhonendoscopeById(PhonendoscopeId entityId) {
+    protected Optional<Phonendoscope> getPhonendoscopeById(PhonendoscopeId entityId) {
         return phonendoscopes()
                 .stream()
                 .filter(phonendoscope -> phonendoscope.identity().equals(entityId))

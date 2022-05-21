@@ -61,7 +61,7 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
         appendChange(new PacientAdded(entityId, name, phoneNumber)).apply();
     }
 
-    public Optional<Pacient> getPacientById(PacientId entityId) {
+    protected Optional<Pacient> getPacientById(PacientId entityId) {
         return pacients()
                 .stream()
                 .filter(pacient -> pacient.identity().equals(entityId))
@@ -84,7 +84,7 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
         appendChange(new DoctorAdded(entityId, name, email)).apply();
     }
 
-    public Optional<Doctor> getDoctorById(DoctorId entityId) {
+    protected Optional<Doctor> getDoctorById(DoctorId entityId) {
         return doctors()
                 .stream()
                 .filter(doctor -> doctor.identity().equals(entityId))
@@ -109,7 +109,7 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
         appendChange(new ClinicHistoryAdded(entityId, consultationReason, background, diagnosis, treatment)).apply();
     }
 
-    public Optional<ClinicHistory> getClinicHistoryById(ClinicHistoryId entityId) {
+    protected Optional<ClinicHistory> getClinicHistoryById(ClinicHistoryId entityId) {
         return clinicHistories()
                 .stream()
                 .filter(clinicHistory -> clinicHistory.identity().equals(entityId))
