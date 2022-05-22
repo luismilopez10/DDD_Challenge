@@ -6,9 +6,9 @@ import com.hospital.medical_appointment.values.Email;
 import com.hospital.medical_appointment.values.Name;
 
 public class DoctorAdded extends DomainEvent {
-    private DoctorId doctorId;
-    private Name name;
-    private Email email;
+    private final DoctorId doctorId;
+    private final Name name;
+    private final Email email;
 
     public DoctorAdded(DoctorId entityId, Name name, Email email) {
         super("hospital.medicalAppointment.doctorAdded");

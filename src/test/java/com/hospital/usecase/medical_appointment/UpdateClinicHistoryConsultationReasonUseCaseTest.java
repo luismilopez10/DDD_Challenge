@@ -3,9 +3,9 @@ package com.hospital.usecase.medical_appointment;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import com.hospital.medical_appointment.commands.UpdateClinicHistoryBackground;
+import com.hospital.medical_appointment.commands.UpdateClinicHistoryConsultationReason;
 import com.hospital.medical_appointment.events.ClinicHistoryAdded;
-import com.hospital.medical_appointment.events.ClinicHistoryBackgroundUpdated;
+import com.hospital.medical_appointment.events.ClinicHistoryConsultationReasonUpdated;
 import com.hospital.medical_appointment.events.MedicalAppointmentCreated;
 import com.hospital.medical_appointment.values.*;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +19,7 @@ import java.text.ParseException;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class UpdateClinicHistoryBackgroundUseCaseTest {
+class UpdateClinicHistoryConsultationReasonUseCaseTest {
 
     private final String ROOTID = "MA-0001";
     private final String CLINIC_HISTORY_ID = "CH-0001";
@@ -28,15 +28,15 @@ class UpdateClinicHistoryBackgroundUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void updateClinicHistoryBackground() throws ParseException {
+    void updateClinicHistoryConsultationReason() throws ParseException {
 
         // Arrange
-        var command = new UpdateClinicHistoryBackground(
+        var command = new UpdateClinicHistoryConsultationReason(
                 MedicalAppointmentId.of(ROOTID),
                 ClinicHistoryId.of(CLINIC_HISTORY_ID),
-                new Background("The patient has constant episodes of migraine and headaches"));
+                new ConsultationReason("I have a migraine episode"));
 
-        var useCase = new UpdateClinicHistoryBackgroundUseCase();
+        var useCase = new UpdateClinicHistoryConsultationReasonUseCase();
         Mockito.when(repository.getEventsBy(ROOTID)).thenReturn(List.of(
                 new MedicalAppointmentCreated(
                         new AppointmentDate("04/12/2022")
@@ -56,11 +56,12 @@ class UpdateClinicHistoryBackgroundUseCaseTest {
                 .getInstance()
                 .setIdentifyExecutor(ROOTID)
                 .syncExecutor(useCase, new RequestCommand<>(command))
-                .orElseThrow(() -> new IllegalArgumentException("Something went wrong while updating the clinic history background"))
+                .orElseThrow(() -> new IllegalArgumentException("Something went wrong while updating the clinic history consultation reason"))
                 .getDomainEvents();
 
         // Assert
-        ClinicHistoryBackgroundUpdated event = (ClinicHistoryBackgroundUpdated) events.get(0);
-        Assertions.assertEquals(command.getBackground().value(), event.getBackground().value());
+        ClinicHistoryConsultationReasonUpdated event = (ClinicHistoryConsultationReasonUpdated) events.get(0);
+        Assertions.assertEquals(command.getConsultationReason().value(), event.getConsultationReason().value());
     }
+
 }
