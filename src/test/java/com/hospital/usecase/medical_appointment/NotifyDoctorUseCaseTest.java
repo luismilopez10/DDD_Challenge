@@ -5,7 +5,6 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
 import com.hospital.medical_appointment.events.MedicalAppointmentCreated;
 import com.hospital.medical_appointment.events.NotificationToDoctorSent;
-import com.hospital.medical_appointment.events.NotificationToPacientSent;
 import com.hospital.medical_appointment.values.AppointmentDate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ import java.text.ParseException;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class NotificationToDoctorSentUseCaseTest {
+class NotifyDoctorUseCaseTest {
 
     private final String ROOTID = "MA-0001";
 
@@ -49,8 +48,8 @@ class NotificationToDoctorSentUseCaseTest {
                 .getDomainEvents();
 
         // Assert
-        NotificationToDoctorSent message = (NotificationToDoctorSent) events.get(0);
-        Assertions.assertEquals("A pacient just assigned a medical appointment with you", message.getMessage());
+        NotificationToDoctorSent eventResponse = (NotificationToDoctorSent) events.get(0);
+        Assertions.assertEquals("A pacient just assigned a medical appointment with you", eventResponse.getMessage());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
 }

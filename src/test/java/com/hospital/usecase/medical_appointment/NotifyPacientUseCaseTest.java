@@ -48,8 +48,8 @@ class NotifyPacientUseCaseTest {
                 .getDomainEvents();
 
         // Assert
-        NotificationToPacientSent message = (NotificationToPacientSent) events.get(0);
-        Assertions.assertEquals("Your medical appointment has been assigned", message.getMessage());
+        NotificationToPacientSent eventResponse = (NotificationToPacientSent) events.get(0);
+        Assertions.assertEquals("Your medical appointment has been assigned", eventResponse.getMessage());
         Mockito.verify(repository).getEventsBy(ROOTID);
     }
 }
