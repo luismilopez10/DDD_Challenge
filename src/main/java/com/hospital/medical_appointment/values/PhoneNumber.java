@@ -13,7 +13,7 @@ public class PhoneNumber implements ValueObject<String> {
             throw new IllegalArgumentException("The phone number can not be empty");
         }
 
-        var regexPattern = "^\\\\d{10}$";
+        var regexPattern = "\\d{10}";
         if (!value.matches(regexPattern)){
             throw new IllegalArgumentException("Invalid phone number");
         }
