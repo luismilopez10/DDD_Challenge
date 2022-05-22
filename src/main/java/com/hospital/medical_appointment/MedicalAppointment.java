@@ -131,4 +131,16 @@ public class MedicalAppointment extends AggregateEvent<MedicalAppointmentId> {
     public void UpdateClinicHistoryTreatment(ClinicHistoryId entityId, Treatment treatment) {
         appendChange(new ClinicHistoryTreatmentUpdated(entityId, treatment)).apply();
     }
+
+
+    // Notifications Behaviors
+    public void notifyPacient(String message) {
+        Objects.requireNonNull(message);
+        appendChange(new NotificationToPacientSent(message)).apply();
+    }
+
+    public void notifyDoctor(String message) {
+        Objects.requireNonNull(message);
+        appendChange(new NotificationToDoctorSent(message)).apply();
+    }
 }
