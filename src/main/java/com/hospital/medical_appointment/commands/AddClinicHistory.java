@@ -4,12 +4,12 @@ import co.com.sofka.domain.generic.Command;
 import com.hospital.medical_appointment.values.*;
 
 public class AddClinicHistory extends Command {
-    private MedicalAppointmentId medicalAppointmentId;
-    private ClinicHistoryId entityId;
-    private ConsultationReason consultationReason;
-    private Background background;
-    private Diagnosis diagnosis;
-    private Treatment treatment;
+    private final MedicalAppointmentId medicalAppointmentId;
+    private final ClinicHistoryId entityId;
+    private final ConsultationReason consultationReason;
+    private final Background background;
+    private final Diagnosis diagnosis;
+    private final Treatment treatment;
 
     public AddClinicHistory(MedicalAppointmentId medicalAppointmentId, ClinicHistoryId entityId, ConsultationReason consultationReason, Background background, Diagnosis diagnosis, Treatment treatment) {
         this.medicalAppointmentId = medicalAppointmentId;

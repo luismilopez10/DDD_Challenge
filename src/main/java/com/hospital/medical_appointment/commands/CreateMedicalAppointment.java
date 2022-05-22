@@ -6,8 +6,8 @@ import com.hospital.medical_appointment.values.MedicalAppointmentId;
 
 public class CreateMedicalAppointment extends Command {
 
-    private MedicalAppointmentId medicalAppointmentId;
-    private AppointmentDate appointmentDate;
+    private final MedicalAppointmentId medicalAppointmentId;
+    private final AppointmentDate appointmentDate;
 
     public CreateMedicalAppointment(MedicalAppointmentId entityId, AppointmentDate appointmentDate) {
         medicalAppointmentId = entityId;

@@ -6,9 +6,9 @@ import com.hospital.medical_appointment.values.ClinicHistoryId;
 import com.hospital.medical_appointment.values.MedicalAppointmentId;
 
 public class UpdateClinicHistoryBackground extends Command {
-    private MedicalAppointmentId medicalAppointmentId;
-    private ClinicHistoryId entityId;
-    private Background background;
+    private final MedicalAppointmentId medicalAppointmentId;
+    private final ClinicHistoryId entityId;
+    private final Background background;
 
     public UpdateClinicHistoryBackground(MedicalAppointmentId medicalAppointmentId, ClinicHistoryId entityId, Background background) {
         this.medicalAppointmentId = medicalAppointmentId;

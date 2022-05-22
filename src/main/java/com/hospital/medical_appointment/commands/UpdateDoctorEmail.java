@@ -6,9 +6,9 @@ import com.hospital.medical_appointment.values.Email;
 import com.hospital.medical_appointment.values.MedicalAppointmentId;
 
 public class UpdateDoctorEmail extends Command {
-    private MedicalAppointmentId medicalAppointmentId;
-    private DoctorId entityId;
-    private Email email;
+    private final MedicalAppointmentId medicalAppointmentId;
+    private final DoctorId entityId;
+    private final Email email;
 
     public UpdateDoctorEmail(MedicalAppointmentId medicalAppointmentId, DoctorId entityId, Email email) {
         this.medicalAppointmentId = medicalAppointmentId;
